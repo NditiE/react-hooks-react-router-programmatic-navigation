@@ -12,15 +12,9 @@ function App() {
     <div>
       <Navbar setIsLoggedIn={setIsLoggedIn} />
       <Switch>
-        <Route exact path="/about">
-          <About />
-        </Route>
-        <Route exact path="/login">
-          <Login setIsLoggedIn={setIsLoggedIn} />
-        </Route>
-        <Route exact path="/">
-          <Home isLoggedIn={isLoggedIn} />
-        </Route>
+        <Route exact path="/about" component={About} />
+        <Route exact path="/login" render={(props) => <Login {...props} setIsLoggedIn={setIsLoggedIn} />} />
+        <Route exact path="/" render={(props) => <Home {...props} isLoggedIn={isLoggedIn} />} />
       </Switch>
     </div>
   );
